@@ -13,7 +13,7 @@
 # limitations under the License.
 """Proof of concept. License restriction."""
 
-load("@rules_license//rules:providers.bzl", "LicenseKindInfo")
+load("@rules_license_min//rules:providers.bzl", "LicenseKindInfo")
 
 #
 # License Kind: The declaration of a well known category of license, for example,

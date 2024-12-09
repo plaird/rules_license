@@ -16,7 +16,7 @@
 """
 
 load(
-    "@rules_license//rules:providers.bzl",
+    "@rules_license_min//rules:providers.bzl",
     "LicenseInfo",
     "LicenseKindInfo",
 )

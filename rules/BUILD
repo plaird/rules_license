@@ -1,4 +1,4 @@
-# BUILD file defining @rules_license/rules
+# BUILD file defining @rules_license_min/rules
 #
 # Copyright 2020 Google LLC
 #
@@ -15,7 +15,7 @@
 # limitations under the License.
 """Rules for making license declarations."""
 
-load("@rules_license//rules_gathering:trace.bzl", "trace")
+load("@rules_license_min//rules_gathering:trace.bzl", "trace")
 
 package(
     default_applicable_licenses = ["//:license"],
@@ -26,7 +26,7 @@ licenses(["notice"])
 
 # This target controls the value of the traced target used during dependency collection.
 # This value should always be the empty string!
-# Specify this value with a flag, like --@rules_license//rules:trace_target=//target/to:trace
+# Specify this value with a flag, like --@rules_license_min//rules:trace_target=//target/to:trace
 trace(
     name = "trace_target",
     build_setting_default = "",  # TRACE-TARGET-SHOULD-BE-EMPTY

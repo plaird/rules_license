@@ -14,13 +14,13 @@
 """SBOM generation"""
 
 load(
-    "@rules_license//rules_gathering:gather_metadata.bzl",
+    "@rules_license_min//rules_gathering:gather_metadata.bzl",
     "gather_metadata_info",
     "gather_metadata_info_and_write",
     "write_metadata_info",
 )
 load(
-    "@rules_license//rules_gathering:gathering_providers.bzl",
+    "@rules_license_min//rules_gathering:gathering_providers.bzl",
     "TransitiveLicensesInfo",
 )
 
@@ -59,7 +59,7 @@ _generate_sbom = rule(
         ),
         "out": attr.output(mandatory = True),
         "_sbom_generator": attr.label(
-            default = Label("@rules_license//tools:write_sbom"),
+            default = Label("@rules_license_min//tools:write_sbom"),
             executable = True,
             allow_files = True,
             cfg = "exec",

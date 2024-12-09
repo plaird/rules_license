@@ -24,7 +24,7 @@
 #
 #   license(
 #       name = "license",
-#       license_kinds = ["@rules_license//licenses/generic:notice"],
+#       license_kinds = ["@rules_license_min//licenses/generic:notice"],
 #       license_text = "LICENSE",
 #   )
 #
@@ -34,8 +34,8 @@
 #
 # Packages may create license rules that use these license_kinds when the
 # package has provided a LICENSE file, but the text in it  does not match any
-# of the well known licenses in @rules_license//licenses/spdx:*
-load("@rules_license//rules:license_kind.bzl", "license_kind")
+# of the well known licenses in @rules_license_min//licenses/spdx:*
+load("@rules_license_min//rules:license_kind.bzl", "license_kind")
 
 package(
     default_applicable_licenses = ["//:license"],

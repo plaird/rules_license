@@ -14,15 +14,15 @@
 """Rules and macros for collecting LicenseInfo providers."""
 
 load(
-    "@rules_license//rules:licenses_core.bzl",
+    "@rules_license_min//rules:licenses_core.bzl",
     "gather_metadata_info_common",
     "should_traverse",
 )
 load(
-    "@rules_license//rules_gathering:gathering_providers.bzl",
+    "@rules_license_min//rules_gathering:gathering_providers.bzl",
     "TransitiveLicensesInfo",
 )
-load("@rules_license//rules_gathering:trace.bzl", "TraceInfo")
+load("@rules_license_min//rules_gathering:trace.bzl", "TraceInfo")
 
 def _strip_null_repo(label):
     """Removes the null repo name (e.g. @//) from a string.
@@ -44,7 +44,7 @@ gather_licenses_info = aspect(
     implementation = _gather_licenses_info_impl,
     attr_aspects = ["*"],
     attrs = {
-        "_trace": attr.label(default = "@rules_license//rules:trace_target"),
+        "_trace": attr.label(default = "@rules_license_min//rules:trace_target"),
     },
     provides = [TransitiveLicensesInfo],
     apply_to_generating_rules = True,
@@ -93,13 +93,13 @@ gather_licenses_info_and_write = aspect(
 
     Usage:
       blaze build //some:target \
-          --aspects=@rules_license//rules:gather_licenses_info.bzl%gather_licenses_info_and_write
+          --aspects=@rules_license_min//rules:gather_licenses_info.bzl%gather_licenses_info_and_write
           --output_groups=licenses
     """,
     implementation = _write_licenses_info_impl,
     attr_aspects = ["*"],
     attrs = {
-        "_trace": attr.label(default = "@rules_license//rules:trace_target"),
+        "_trace": attr.label(default = "@rules_license_min//rules:trace_target"),
     },
     provides = [OutputGroupInfo],
     requires = [gather_licenses_info],
@@ -150,7 +150,7 @@ def write_licenses_info(ctx, deps, json_out):
     licenses_files = []
     for dep in deps:
         if TransitiveLicensesInfo in dep:
-            transitive_licenses_info = dep[TransitiveLicensesInfo]            
+            transitive_licenses_info = dep[TransitiveLicensesInfo]
             lic_info, _ = licenses_info_to_json(transitive_licenses_info)
             licenses_json.extend(lic_info)
             for info in transitive_licenses_info.licenses.to_list():

@@ -13,15 +13,15 @@
 # limitations under the License.
 """Rules and macros for collecting LicenseInfo providers."""
 
-load("@rules_license//rules:filtered_rule_kinds.bzl", "aspect_filters")
-load("@rules_license//rules:providers.bzl", "LicenseInfo")
-load("@rules_license//rules:user_filtered_rule_kinds.bzl", "user_aspect_filters")
+load("@rules_license_min//rules:filtered_rule_kinds.bzl", "aspect_filters")
+load("@rules_license_min//rules:providers.bzl", "LicenseInfo")
+load("@rules_license_min//rules:user_filtered_rule_kinds.bzl", "user_aspect_filters")
 load(
-    "@rules_license//rules_gathering:gathering_providers.bzl",
+    "@rules_license_min//rules_gathering:gathering_providers.bzl",
     "LicensedTargetInfo",
     "TransitiveLicensesInfo",
 )
-load("@rules_license//rules_gathering:trace.bzl", "TraceInfo")
+load("@rules_license_min//rules_gathering:trace.bzl", "TraceInfo")
 
 def should_traverse(ctx, attr):
     """Checks if the dependent attribute should be traversed.

@@ -16,7 +16,7 @@
 To be deleted before version 0.1.0
 """
 load(
-    "@rules_license//rules_gathering:gather_metadata.bzl",
+    "@rules_license_min//rules_gathering:gather_metadata.bzl",
     _gather_metadata_info = "gather_metadata_info",
     _gather_metadata_info_and_write = "gather_metadata_info_and_write",
 )

@@ -14,7 +14,7 @@
 """Rules for declaring metadata about a package."""
 
 load(
-    "@rules_license//rules:package_info.bzl",
+    "@rules_license_min//rules:package_info.bzl",
     "package_info",
 )
 

@@ -17,7 +17,7 @@ TODO(2023-07-01): Delete this file.
 """
 
 load(
-    "@rules_license//rules_gathering:gathering_providers.bzl",
+    "@rules_license_min//rules_gathering:gathering_providers.bzl",
     _private_TransitiveLicensesInfo = "TransitiveLicensesInfo",
 )
 

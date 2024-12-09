@@ -14,20 +14,20 @@
 """Rules and macros for collecting LicenseInfo providers."""
 
 load(
-    "@rules_license//rules:licenses_core.bzl",
+    "@rules_license_min//rules:licenses_core.bzl",
     "gather_metadata_info_common",
     "should_traverse",
 )
 load(
-    "@rules_license//rules:providers.bzl",
+    "@rules_license_min//rules:providers.bzl",
     "ExperimentalMetadataInfo",
     "PackageInfo",
 )
 load(
-    "@rules_license//rules_gathering:gathering_providers.bzl",
+    "@rules_license_min//rules_gathering:gathering_providers.bzl",
     "TransitiveMetadataInfo",
 )
-load("@rules_license//rules_gathering:trace.bzl", "TraceInfo")
+load("@rules_license_min//rules_gathering:trace.bzl", "TraceInfo")
 
 def _strip_null_repo(label):
     """Removes the null repo name (e.g. @//) from a string.
@@ -58,7 +58,7 @@ gather_metadata_info = aspect(
     implementation = _gather_metadata_info_impl,
     attr_aspects = ["*"],
     attrs = {
-        "_trace": attr.label(default = "@rules_license//rules:trace_target"),
+        "_trace": attr.label(default = "@rules_license_min//rules:trace_target"),
     },
     provides = [TransitiveMetadataInfo],
     apply_to_generating_rules = True,
@@ -106,13 +106,13 @@ gather_metadata_info_and_write = aspect(
 
     Usage:
       bazel build //some:target \
-          --aspects=@rules_license//rules_gathering:gather_metadata.bzl%gather_metadata_info_and_write
+          --aspects=@rules_license_min//rules_gathering:gather_metadata.bzl%gather_metadata_info_and_write
           --output_groups=licenses
     """,
     implementation = _write_metadata_info_impl,
     attr_aspects = ["*"],
     attrs = {
-        "_trace": attr.label(default = "@rules_license//rules:trace_target"),
+        "_trace": attr.label(default = "@rules_license_min//rules:trace_target"),
     },
     provides = [OutputGroupInfo],
     requires = [gather_metadata_info],

@@ -24,7 +24,7 @@
 #
 #   license(
 #       name = "license",
-#       license_kinds = ["@rules_license//licenses/spdx:MIT-0"],
+#       license_kinds = ["@rules_license_min//licenses/spdx:MIT-0"],
 #       license_text = "LICENSE.txt",
 #   )
 #
@@ -52,7 +52,7 @@
 # If you maintain your own  third_party directory of all your dependences,
 # so that your WORKSPACE files are empty, you might favor the second.
 
-load("@rules_license//rules:license_kind.bzl", "license_kind")
+load("@rules_license_min//rules:license_kind.bzl", "license_kind")
 
 package(
     default_applicable_licenses = ["//:license"],

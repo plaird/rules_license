@@ -14,19 +14,19 @@
 """License compliance checking."""
 
 load(
-    "@rules_license//rules:gather_licenses_info.bzl",
+    "@rules_license_min//rules:gather_licenses_info.bzl",
     "gather_licenses_info",
     "gather_licenses_info_and_write",
     "write_licenses_info",
 )
 load(
-    "@rules_license//rules_gathering:gathering_providers.bzl",
+    "@rules_license_min//rules_gathering:gathering_providers.bzl",
     "TransitiveLicensesInfo",
 )
 
 # Forward licenses used until users migrate. Delete at 0.0.7 or 0.1.0.
 load(
-    "@rules_license//sample_reports:licenses_used.bzl",
+    "@rules_license_min//sample_reports:licenses_used.bzl",
     _licenses_used = "licenses_used",
 )
 
@@ -83,7 +83,7 @@ _check_license = rule(
         "license_texts": attr.output(mandatory = False),
         "report": attr.output(mandatory = True),
         "_checker": attr.label(
-            default = Label("@rules_license//tools:checker_demo"),
+            default = Label("@rules_license_min//tools:checker_demo"),
             executable = True,
             allow_files = True,
             cfg = "exec",

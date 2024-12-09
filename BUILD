@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@rules_license//:version.bzl", "version")
-load("@rules_license//rules:current_module_package_info.bzl", "current_module_package_info")
-load("@rules_license//rules:license.bzl", "license")
-load("@rules_license//rules:package_info.bzl", "package_info")
+load("@rules_license_min//:version.bzl", "version")
+load("@rules_license_min//rules:current_module_package_info.bzl", "current_module_package_info")
+load("@rules_license_min//rules:license.bzl", "license")
+load("@rules_license_min//rules:package_info.bzl", "package_info")
 
 package(
     default_applicable_licenses = [":license", ":package_info"],
@@ -27,7 +27,7 @@ licenses(["notice"])
 license(
     name = "license",
     license_kinds = [
-        "@rules_license//licenses/spdx:Apache-2.0",
+        "@rules_license_min//licenses/spdx:Apache-2.0",
     ],
     license_text = "LICENSE",
 )

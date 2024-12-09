@@ -16,11 +16,11 @@
 """
 
 load(
-    "@rules_license//rules:providers.bzl",
+    "@rules_license_min//rules:providers.bzl",
     "LicenseKindInfo",
 )
 load(
-    "@rules_license//rules:license_impl.bzl",
+    "@rules_license_min//rules:license_impl.bzl",
     "license_rule_impl",
 )
 
