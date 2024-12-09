@@ -37,7 +37,7 @@ current_module_package_info(
 )
 
 exports_files(
-    ["LICENSE", "WORKSPACE"],
+    ["LICENSE", "MODULE.bazel"],
     visibility = ["//visibility:public"],
 )
 
@@ -57,7 +57,6 @@ filegroup(
         "BUILD",
         "LICENSE",
         "MODULE.bazel",
-        "WORKSPACE.bzlmod",
     ],
     visibility = ["//distro:__pkg__"],
 )

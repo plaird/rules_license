@@ -56,9 +56,9 @@ pkg_tar(
 
 genrule(
     name = "small_workspace",
-    srcs = ["//:WORKSPACE"],
-    outs = ["WORKSPACE"],
-    cmd = "sed -e '/### INTERNAL ONLY/,$$d' $(location //:WORKSPACE) >$@",
+    srcs = ["//:MODULE.bazel"],
+    outs = ["MODULE.bazel"],
+    cmd = "sed -e '/### INTERNAL ONLY/,$$d' $(location //:MODULE.bazel) >$@",
     tags = [
         "no_windows",
     ],
